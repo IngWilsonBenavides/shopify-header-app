@@ -1,0 +1,27 @@
+{
+  "blocks": {
+    "header": {
+      "name": "Header",
+      "settings": {
+        "top_bar_header": "Barra Superior",
+        "show_top_bar": "Mostrar barra superior",
+        "email": "Correo electrónico de contacto",
+        "social_message": "Mensaje junto a redes sociales",
+        "social_header": "Redes Sociales",
+        "facebook_url": "URL de Facebook",
+        "instagram_url": "URL de Instagram",
+        "tiktok_url": "URL de TikTok",
+        "linkedin_url": "URL de LinkedIn",
+        "nav_header": "Navegación",
+        "logo": "Logo de la tienda",
+        "menu": "Menú de navegación",
+        "colors_header": "Colores",
+        "top_bar_bg_color": "Fondo de la barra superior",
+        "top_bar_text_color": "Texto de la barra superior",
+        "navbar_bg_color": "Fondo del navbar",
+        "navbar_text_color": "Texto del navbar",
+        "hover_color": "Color de acento / hover"
+      }
+    }
+  }
+}

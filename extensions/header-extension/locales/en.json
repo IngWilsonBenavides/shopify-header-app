@@ -1,0 +1,27 @@
+{
+  "blocks": {
+    "header": {
+      "name": "Header",
+      "settings": {
+        "top_bar_header": "Top Bar",
+        "show_top_bar": "Show top bar",
+        "email": "Contact email",
+        "social_message": "Message next to social icons",
+        "social_header": "Social Networks",
+        "facebook_url": "Facebook URL",
+        "instagram_url": "Instagram URL",
+        "tiktok_url": "TikTok URL",
+        "linkedin_url": "LinkedIn URL",
+        "nav_header": "Navigation",
+        "logo": "Store logo",
+        "menu": "Navigation menu",
+        "colors_header": "Colors",
+        "top_bar_bg_color": "Top bar background",
+        "top_bar_text_color": "Top bar text",
+        "navbar_bg_color": "Navbar background",
+        "navbar_text_color": "Navbar text",
+        "hover_color": "Accent / hover color"
+      }
+    }
+  }
+}

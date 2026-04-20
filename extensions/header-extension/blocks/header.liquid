@@ -1,0 +1,323 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+
+<div id="shopify-header-app" class="sha-wrapper">
+
+  <!-- ===== Top Bar ===== -->
+  {% if block.settings.show_top_bar %}
+  <div
+    class="sha-top-bar"
+    style="background-color: {{ block.settings.top_bar_bg_color }}; color: {{ block.settings.top_bar_text_color }};"
+  >
+    <div class="sha-container sha-top-bar-content">
+
+      {% if block.settings.email != blank %}
+      <a
+        href="mailto:{{ block.settings.email }}"
+        class="sha-email-link"
+        style="color: {{ block.settings.top_bar_text_color }};"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        {{ block.settings.email }}
+      </a>
+      {% endif %}
+
+      <div class="sha-social-links">
+        {% if block.settings.social_message != blank %}
+          <span>{{ block.settings.social_message }}</span>
+        {% endif %}
+
+        {% if block.settings.facebook_url != blank %}
+        <a
+          href="{{ block.settings.facebook_url }}"
+          aria-label="Facebook"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: {{ block.settings.top_bar_text_color }};"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+        {% endif %}
+
+        {% if block.settings.instagram_url != blank %}
+        <a
+          href="{{ block.settings.instagram_url }}"
+          aria-label="Instagram"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: {{ block.settings.top_bar_text_color }};"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </a>
+        {% endif %}
+
+        {% if block.settings.tiktok_url != blank %}
+        <a
+          href="{{ block.settings.tiktok_url }}"
+          aria-label="TikTok"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: {{ block.settings.top_bar_text_color }};"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+        {% endif %}
+
+        {% if block.settings.linkedin_url != blank %}
+        <a
+          href="{{ block.settings.linkedin_url }}"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="color: {{ block.settings.top_bar_text_color }};"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- ===== Navbar ===== -->
+  <nav
+    class="sha-navbar"
+    aria-label="Navegación principal"
+    style="background-color: {{ block.settings.navbar_bg_color }};"
+  >
+    <div class="sha-container sha-nav-content">
+
+      <!-- Logo -->
+      <a href="{{ routes.root_url }}" class="sha-logo">
+        {% if block.settings.logo != blank %}
+          <img
+            src="{{ block.settings.logo | image_url: width: 200 }}"
+            alt="{{ shop.name }}"
+            width="200"
+            height="60"
+            loading="eager"
+          >
+        {% else %}
+          <span class="sha-logo-text" style="color: {{ block.settings.navbar_text_color }};">
+            {{ shop.name }}
+          </span>
+        {% endif %}
+      </a>
+
+      <!-- Mobile hamburger button -->
+      <button
+        class="sha-mobile-menu-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="sha-nav-menu"
+        style="color: {{ block.settings.navbar_text_color }};"
+      >
+        <svg class="sha-icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg class="sha-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:none;">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Navigation menu -->
+      {% assign nav_menu = linklists[block.settings.menu] %}
+      {% if nav_menu != blank %}
+      <ul
+        id="sha-nav-menu"
+        class="sha-nav-menu"
+        style="--sha-nav-text: {{ block.settings.navbar_text_color }}; --sha-nav-bg: {{ block.settings.navbar_bg_color }}; --sha-accent: {{ block.settings.hover_color }};"
+      >
+        {% for link in nav_menu.links %}
+        <li class="sha-nav-item{% if link.links.size > 0 %} sha-has-dropdown{% endif %}">
+          <a
+            href="{{ link.url }}"
+            style="color: {{ block.settings.navbar_text_color }};"
+            {% if link.links.size > 0 %}aria-haspopup="true" aria-expanded="false"{% endif %}
+          >
+            {{ link.title }}
+            {% if link.links.size > 0 %}
+            <svg class="sha-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+            {% endif %}
+          </a>
+          {% if link.links.size > 0 %}
+          <ul class="sha-dropdown-menu" style="background-color: {{ block.settings.navbar_bg_color }};">
+            {% for child_link in link.links %}
+            <li>
+              <a href="{{ child_link.url }}" style="color: {{ block.settings.navbar_text_color }};">
+                {{ child_link.title }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      <!-- Action icons -->
+      <div class="sha-nav-icons">
+        <a
+          href="{{ routes.account_url }}"
+          class="sha-icon-btn"
+          aria-label="Mi cuenta"
+          style="color: {{ block.settings.navbar_text_color }};"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </a>
+        <a
+          href="{{ routes.cart_url }}"
+          class="sha-icon-btn sha-cart-link"
+          aria-label="Carrito de compras"
+          style="color: {{ block.settings.navbar_text_color }};"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span
+            class="sha-cart-count"
+            aria-label="{{ cart.item_count }} artículos en el carrito"
+            style="background-color: {{ block.settings.hover_color }};"
+          >
+            {{ cart.item_count }}
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+</div>
+
+<script src="{{ 'header.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "t:blocks.header.name",
+  "target": "body",
+  "stylesheet": "header.css",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:blocks.header.settings.top_bar_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_bar",
+      "label": "t:blocks.header.settings.show_top_bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "t:blocks.header.settings.email",
+      "default": "email@example.com"
+    },
+    {
+      "type": "text",
+      "id": "social_message",
+      "label": "t:blocks.header.settings.social_message",
+      "default": "Síguenos en nuestras redes sociales"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks.header.settings.social_header"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "t:blocks.header.settings.facebook_url"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "t:blocks.header.settings.instagram_url"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "t:blocks.header.settings.tiktok_url"
+    },
+    {
+      "type": "url",
+      "id": "linkedin_url",
+      "label": "t:blocks.header.settings.linkedin_url"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks.header.settings.nav_header"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "t:blocks.header.settings.logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:blocks.header.settings.menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "t:blocks.header.settings.colors_header"
+    },
+    {
+      "type": "color",
+      "id": "top_bar_bg_color",
+      "label": "t:blocks.header.settings.top_bar_bg_color",
+      "default": "#9eada9"
+    },
+    {
+      "type": "color",
+      "id": "top_bar_text_color",
+      "label": "t:blocks.header.settings.top_bar_text_color",
+      "default": "#463c36"
+    },
+    {
+      "type": "color",
+      "id": "navbar_bg_color",
+      "label": "t:blocks.header.settings.navbar_bg_color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "navbar_text_color",
+      "label": "t:blocks.header.settings.navbar_text_color",
+      "default": "#463c36"
+    },
+    {
+      "type": "color",
+      "id": "hover_color",
+      "label": "t:blocks.header.settings.hover_color",
+      "default": "#c84478"
+    }
+  ]
+}
+{% endschema %}

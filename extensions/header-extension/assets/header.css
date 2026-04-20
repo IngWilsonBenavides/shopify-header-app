@@ -1,0 +1,350 @@
+/* ==========================================================
+   Shopify Header App — header.css
+   All classes are prefixed with "sha-" to avoid conflicts
+   with existing theme styles.
+   ========================================================== */
+
+/* ----------------------------------------------------------
+   CSS custom properties (scoped to the root element)
+   ---------------------------------------------------------- */
+#shopify-header-app {
+  --sha-mint-green: #9eada9;
+  --sha-pink: #c84478;
+  --sha-dark: #463c36;
+  --sha-white: #ffffff;
+  --sha-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   Wrapper — fixed to the top of the viewport
+   ---------------------------------------------------------- */
+.sha-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+/* ----------------------------------------------------------
+   Container
+   ---------------------------------------------------------- */
+.sha-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ----------------------------------------------------------
+   Top Bar
+   ---------------------------------------------------------- */
+.sha-top-bar {
+  background-color: var(--sha-mint-green);
+  color: var(--sha-dark);
+  padding: 0.75rem 0;
+  font-size: 0.9rem;
+}
+
+.sha-top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sha-email-link {
+  color: var(--sha-dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s;
+}
+
+.sha-email-link:hover {
+  opacity: 0.7;
+}
+
+.sha-social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sha-social-links span {
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.sha-social-links a {
+  display: flex;
+  align-items: center;
+  color: var(--sha-dark);
+  transition: opacity 0.3s;
+}
+
+.sha-social-links a:hover {
+  opacity: 0.7;
+}
+
+/* ----------------------------------------------------------
+   Navbar
+   ---------------------------------------------------------- */
+.sha-navbar {
+  background-color: var(--sha-white);
+  padding: 1rem 0;
+  box-shadow: var(--sha-shadow);
+}
+
+.sha-nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Logo */
+.sha-logo {
+  text-decoration: none;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sha-logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+.sha-logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sha-dark);
+  white-space: nowrap;
+}
+
+/* Navigation menu */
+.sha-nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+.sha-nav-item {
+  position: relative;
+}
+
+.sha-nav-item > a {
+  color: var(--sha-dark);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.sha-nav-item > a:hover {
+  color: var(--sha-accent, var(--sha-pink));
+}
+
+/* Chevron icon */
+.sha-chevron {
+  transition: transform 0.25s;
+  flex-shrink: 0;
+}
+
+.sha-has-dropdown:hover .sha-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.sha-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background-color: var(--sha-white);
+  min-width: 200px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 0 0 8px 8px;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  z-index: 10;
+}
+
+.sha-has-dropdown:hover .sha-dropdown-menu {
+  display: block;
+}
+
+.sha-dropdown-menu li a {
+  display: block;
+  padding: 0.6rem 1.25rem;
+  color: var(--sha-dark);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.25s, background-color 0.25s;
+}
+
+.sha-dropdown-menu li a:hover {
+  color: var(--sha-accent, var(--sha-pink));
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Nav action icons */
+.sha-nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.sha-icon-btn {
+  color: var(--sha-dark);
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sha-icon-btn:hover {
+  color: var(--sha-accent, var(--sha-pink));
+}
+
+/* Cart count badge */
+.sha-cart-link {
+  position: relative;
+}
+
+.sha-cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: var(--sha-pink);
+  color: #fff;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0 3px;
+  line-height: 1;
+}
+
+/* Mobile hamburger button */
+.sha-mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: var(--sha-dark);
+  line-height: 0;
+}
+
+/* ----------------------------------------------------------
+   Responsive — tablet / mobile
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Top bar stacks vertically */
+  .sha-top-bar-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .sha-social-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Show hamburger, hide desktop menu */
+  .sha-mobile-menu-btn {
+    display: block;
+    order: 3;
+  }
+
+  .sha-nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--sha-white);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    z-index: 50;
+  }
+
+  .sha-nav-menu.sha-is-open {
+    display: flex;
+  }
+
+  .sha-nav-item {
+    width: 100%;
+  }
+
+  .sha-nav-item > a {
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    justify-content: space-between;
+  }
+
+  /* Mobile dropdown */
+  .sha-dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .sha-has-dropdown.sha-is-open .sha-dropdown-menu {
+    display: block;
+  }
+
+  .sha-has-dropdown:hover .sha-dropdown-menu {
+    display: none;
+  }
+
+  .sha-has-dropdown.sha-is-open .sha-chevron {
+    transform: rotate(180deg);
+  }
+
+  .sha-dropdown-menu li a {
+    padding-left: 2.5rem;
+  }
+
+  /* Keep logo and icons visible, push menu button to end */
+  .sha-nav-content {
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .sha-logo {
+    order: 1;
+  }
+
+  .sha-nav-icons {
+    order: 2;
+  }
+}
