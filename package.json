@@ -1,0 +1,14 @@
+{
+  "name": "shopify-header-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shopify app that adds a customizable header section to any store via a theme app extension",
+  "scripts": {
+    "dev": "shopify app dev",
+    "deploy": "shopify app deploy",
+    "build": "shopify app build"
+  },
+  "workspaces": [
+    "extensions/*"
+  ]
+}

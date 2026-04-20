@@ -1,0 +1,6 @@
+api_version = "2024-10"
+
+[[extensions]]
+  type = "theme_app_extension"
+  name = "Header Section"
+  handle = "header-section"

@@ -1,0 +1,14 @@
+name = "shopify-header-app"
+client_id = ""
+application_url = "https://shopify-header-app.fly.dev"
+embedded = true
+
+[access_scopes]
+scopes = "read_themes"
+
+[webhooks]
+api_version = "2024-10"
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = ""
